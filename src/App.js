@@ -17,8 +17,8 @@ function App() {
     setCart([...cart, item]);
   };
 
-  const removeItem = (item) => {
-    const newCart = cart.filter((product, index) => index !== item);
+  const removeItem = (id) => {
+    const newCart = cart.filter((item) => item.id !== id);
     setCart(newCart);
   };
 

@@ -5,10 +5,10 @@ import { Shopping } from "../App";
 import Item from "./ShoppingCartItem";
 
 const ShoppingCart = () => {
-  const { cart, removeItem } = useContext(Shopping);
+  const values = useContext(Shopping);
 
   const getCartTotal = () => {
-    return cart
+    return values.cart
       .reduce((acc, value) => {
         return acc + value.price;
       }, 0)
@@ -17,8 +17,8 @@ const ShoppingCart = () => {
 
   return (
     <div className="shopping-cart">
-      {cart.map((item, index) => (
-        <Item key={index} {...item} removeItem={() => removeItem(index)} />
+      {values.cart.map((item, index) => (
+        <Item key={index} {...item} />
       ))}
 
       <div className="shopping-cart__checkout">
